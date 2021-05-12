@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<testCase version="8.5.0.202103021747">
+    <general>
+        <language>Python</language>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="0f3c77f7-d32f-4636-92e4-68e2c221daa3" action="comment" useFieldsInCommand="false">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="d894646d-3d07-4ccc-8bdd-4a53ef1cf32c" action="call" useFieldsInCommand="false">
+                    <command>
+                        <body>getSutKpi()</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="getSutKpi" isPublic="true">
+            <steps>
+                <item guid="830bef19-58ca-45df-a975-38cb202762dd" action="eval" useFieldsInCommand="false">
+                    <command>
+                        <body>returnString=&apos;[ { &quot;memory_utilization&quot;: 15, &quot;cpu_utilization&quot;: 25, &quot;name&quot;: &quot;Any5GC&quot;, &quot;model&quot;: &quot;UPF&quot;, &quot;make&quot;: &quot;Contrived&quot; } ]&apos;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3bf3de13-b4c4-4b5e-9f26-dcfe5128f4e6" action="return">
+                    <command>
+                        <body>[returnString]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>
