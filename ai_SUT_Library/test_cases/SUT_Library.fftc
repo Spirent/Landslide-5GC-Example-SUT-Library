@@ -7,31 +7,261 @@
         <item name="main">
             <steps>
                 <item guid="0f3c77f7-d32f-4636-92e4-68e2c221daa3" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>getSutKpi is called from L5AP tests</body>
+                    </command>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="d894646d-3d07-4ccc-8bdd-4a53ef1cf32c" action="call" useFieldsInCommand="false">
+                <item guid="e5c81eaf-997e-4bf2-8d22-0e49fa53c9fc" action="call" useFieldsInCommand="false">
                     <command>
                         <body>getSutKpi()</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
             </steps>
+            <response>{}</response>
         </item>
-        <item name="getSutKpi" isPublic="true">
+        <item name="getSutKpi" isPublic="true" isVBlock="true">
             <steps>
-                <item guid="830bef19-58ca-45df-a975-38cb202762dd" action="eval" useFieldsInCommand="false">
+                <item guid="d6e2e554-0166-4b9f-b074-3428dc800ae0" action="comment" useFieldsInCommand="false">
                     <command>
-                        <body>returnString=&apos;[ { &quot;memory_utilization&quot;: 15, &quot;cpu_utilization&quot;: 25, &quot;name&quot;: &quot;Any5GC&quot;, &quot;model&quot;: &quot;UPF&quot;, &quot;make&quot;: &quot;Contrived&quot; } ]&apos;</body>
+                        <body>Examples setting return JSON payload using query and store analysis under commands</body>
                     </command>
+                    <nestedSteps>
+                        <item guid="8e2522c2-97e3-4190-8b4e-50c5cab22e1f" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>print(10)</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>responseLine()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <query>item/memory_utilization</query>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="d42bf352-ac9b-422c-88ff-0f96470defbc" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>print(20)</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>responseLine()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <query>item/cpu_utilization</query>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="d4eedb84-2349-43ce-94af-b404903b91f8" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>print(param(&apos;Topology_parameters/SUT/Name&apos;, &quot;SUT1&quot;))</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>responseLine()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>var1</storageLocation>
+                                                <query>item/name</query>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="0465e67a-dbbc-40dd-904e-3ea2c2cfa233" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>print(param(&apos;Topology_parameters/SUT/Model&apos;, &quot;Model1&quot;))</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>responseLine()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <query>item/model</query>
+                                                <responseValue type="com.fnfr.documents.PropertyBoolean">true</responseValue>
+                                                <variable type="com.fnfr.documents.PropertyBoolean">false</variable>
+                                                <secret type="com.fnfr.documents.PropertyBoolean">false</secret>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
-                <item guid="3bf3de13-b4c4-4b5e-9f26-dcfe5128f4e6" action="return">
+                <item guid="9af1ce32-ccbf-4f89-a711-02f845b2844f" action="comment" useFieldsInCommand="false">
                     <command>
-                        <body>[returnString]</body>
+                        <body>Examples setting return JSON payload using the json command</body>
                     </command>
+                    <nestedSteps>
+                        <item guid="8b1752ae-6fd4-465c-be66-3f63f774f0cd" action="eval" useFieldsInCommand="false">
+                            <command>
+                                <body>make=&quot;Make1&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="5a05f744-babe-42af-bcbc-231f2ddb8716" action="json" useFieldsInCommand="false">
+                            <command>
+                                <body>action=&apos;setJsonValue&apos;, editResponseStructure=&apos;true&apos;, pathValue=&apos;{&quot;\\\\[0]/make&quot;:&quot;[make]&quot;}&apos;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.builtin.json.JsonPropertiesGroup">
+                                <action inherit="false">setJsonValue</action>
+                                <pathValue inherit="false" sub="true">{&quot;\\[0]/make&quot;:&quot;[make]&quot;}</pathValue>
+                                <editResponseStructure inherit="false">true</editResponseStructure>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="386992fd-ec9d-4d30-a8dd-febd2fd297c4" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Example of recording an additional KPI; to enable, change below to True</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="912360e8-bf8a-4519-ad88-0df19b699d4a" action="if" useFieldsInCommand="false">
+                            <command>
+                                <body>False:</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="ea56674e-e2b6-4de0-a7c2-707f5f5ac94b" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>extraKPI = (info(&apos;testCaseName&apos;, &apos;main&apos;)) + &quot;.customKPI1&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="19253ef7-bbb8-4ad4-ba88-fac6cf59b799" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>print(1200000)</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>responseLine()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="message">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                        <message>Additional KPI measurement: {value}</message>
+                                                        <extractData>true</extractData>
+                                                        <tag>[extraKPI]</tag>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="85865e60-ece3-48ab-8247-35583859f6c7" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>Example of performing an assertion on the SUT and setting a pass/fail verdict; to enable, change below to True</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="5e241288-3a22-474d-afd8-74f262aa68d4" action="if" useFieldsInCommand="false">
+                            <command>
+                                <body>False:</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="77ae0013-0d8f-43e1-baf0-89cd55ab4a80" action="eval" useFieldsInCommand="false">
+                                    <command>
+                                        <body>print(&quot;Failure based on SUT assertion&quot;)</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="contains">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                        <searchString>Failure</searchString>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>value == 1</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                    <message>SUT assertion fails</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                                    <message> SUT assertion passes</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
             </steps>
+            <response>[{&quot;memory_utilization&quot;:15,&quot;cpu_utilization&quot;:25,&quot;name&quot;:&quot;Any5GC&quot;,&quot;model&quot;:&quot;UPF&quot;,&quot;make&quot;:&quot;Contrived&quot;}]</response>
         </item>
     </procedures>
 </testCase>
