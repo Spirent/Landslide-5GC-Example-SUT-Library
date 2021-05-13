@@ -8,7 +8,7 @@
             <steps>
                 <item guid="0f3c77f7-d32f-4636-92e4-68e2c221daa3" action="comment" useFieldsInCommand="false">
                     <command>
-                        <body>getSutKpi is called from L5AP tests</body>
+                        <body>getSutKpi is called from L5AP tests; called below just for development purposes</body>
                     </command>
                     <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                 </item>
@@ -139,7 +139,7 @@
                     <nestedSteps>
                         <item guid="8b1752ae-6fd4-465c-be66-3f63f774f0cd" action="eval" useFieldsInCommand="false">
                             <command>
-                                <body>make=&quot;Make1&quot;</body>
+                                <body>make=(param(&apos;Topology_parameters/SUT/Make&apos;, &quot;Make1&quot;))</body>
                             </command>
                             <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
                         </item>
