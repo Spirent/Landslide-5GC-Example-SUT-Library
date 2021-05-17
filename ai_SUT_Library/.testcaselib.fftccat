@@ -1,2 +1,18 @@
 <?xml version="1.0"?>
-<TestCaseCatalog version="8.5.0.202103021747"/>
+<TestCaseCatalog version="8.5.0.202104211757">
+    <testCaseCatalog>
+        <item name="test_cases/SUT_Library.fftc">
+            <tcDescriptor version="8.5.0.202104211757">
+                <general>
+                    <isProcedureLibrary>true</isProcedureLibrary>
+                    <language>Python</language>
+                </general>
+                <procedures>
+                    <item name="getSutKpi" isPublic="true" isVBlock="true">
+                        <response>[{&quot;memory_utilization&quot;:15,&quot;cpu_utilization&quot;:25,&quot;name&quot;:&quot;Any5GC&quot;,&quot;model&quot;:&quot;UPF&quot;,&quot;make&quot;:&quot;Contrived&quot;}]</response>
+                    </item>
+                </procedures>
+            </tcDescriptor>
+        </item>
+    </testCaseCatalog>
+</TestCaseCatalog>
