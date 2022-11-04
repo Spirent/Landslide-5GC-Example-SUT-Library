@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<testCase version="8.5.0.202104211757">
+<testCase version="9.2.0.202211031751">
     <general>
         <isProcedureLibrary>true</isProcedureLibrary>
         <language>Python</language>
@@ -22,7 +22,7 @@
             </steps>
             <response>{}</response>
         </item>
-        <item name="getSutKpi" isPublic="true" isVBlock="true">
+        <item name="getSutKpi" isPublic="true" blockResponseType="JSON">
             <steps>
                 <item guid="d6e2e554-0166-4b9f-b074-3428dc800ae0" action="comment" useFieldsInCommand="false">
                     <command>
@@ -263,6 +263,46 @@
                 </item>
             </steps>
             <response>[{&quot;memory_utilization&quot;:15,&quot;cpu_utilization&quot;:25,&quot;name&quot;:&quot;Any5GC&quot;,&quot;model&quot;:&quot;UPF&quot;,&quot;make&quot;:&quot;Contrived&quot;}]</response>
+        </item>
+        <item name="getDataFromUdmSut" isPublic="true" blockResponseType="JSON">
+            <steps>
+                <item guid="55cfd222-57bf-4cc6-b682-8d9a645755e3" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>After the Landslide test script has finished executing, retrieve the following values from the UDM-SUT</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="bb19e52f-b516-4a41-8046-e8bbe9b76c1d" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>i. Serving Network Name</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="43bdcdf7-8710-44ea-bec1-a3e60b912b1d" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>ii. Authentication Status</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="13d84d62-41c5-4880-a1af-16730d2eccaf" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>iii. SUPI</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e1ce0c67-1ca6-463d-a89c-138f9d73abc4" action="comment" useFieldsInCommand="false">
+                    <command>
+                        <body>iv. Authentication Timestamp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>The following values are required for S-UDM-3-SA_ AuthStatusStoreUdm. The four values must be retrieved from the SUT once the Landslide test script completes, the retrieved values will be used in the result analysis.
+i. Serving Network Name
+ii. Authentication Status
+iii. SUPI
+iv. Authentication Timestamp</multilineDescription>
+            <response>{&quot;serving_network_name&quot;:&quot;5G:mnc000.mcc000.3gppnetwork.org&quot;,&quot;authentication_status&quot;:&quot;AUTHENTICATION_SUCCESS&quot;,&quot;supi&quot;:&quot;imsi-134310625914996&quot;,&quot;authentication_timestamp&quot;:&quot;2022-11-03T03:52:14Z&quot;}</response>
         </item>
     </procedures>
 </testCase>
